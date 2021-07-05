@@ -28,6 +28,7 @@ form {
     width: 100%;
     padding: 8px;
     border: none;
+    outline: none;
 }
 .add-btn{
     border: none;
@@ -54,7 +55,7 @@ form {
 .todo{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    margin-bottom: 0.5rem;
     background: #fff;
 }
 
@@ -64,19 +65,25 @@ form {
     /* list-style: none; */
 }
 
-.edit{
+.complete-btn{
     font-size: 1.3rem;
     padding-right: 5px;
     color: white;
     background-color: green;
     padding: 5px;
     cursor:pointer;
-
+    border: none;
 }
-.trash{
+.trash-btn{
     color: white;
     background-color: red;
     padding: 7px;
     cursor:pointer;
-
+    border: none;
+}
+.complete-btn i, .trash-btn i {
+    pointer-events: none;
+}
+.complete{
+    text-decoration: line-through;
 }
