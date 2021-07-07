@@ -12,7 +12,7 @@ body{
 }
 
 .header{
-    font-size: 2rem;
+    font-size: 4rem;
     font-family: 'Dancing Script', cursive;
     text-align: center;
     margin-top: 20vh;
@@ -57,12 +57,13 @@ form {
     justify-content: center;
     margin-bottom: 0.5rem;
     background: #fff;
+    transition: all 1s ease;
 }
 
 .todo-text{
     flex: 1;
-    padding: 5px;
-    /* list-style: none; */
+    font-size: 1.2rem;
+    padding: 8px;
 }
 
 .complete-btn{
@@ -84,6 +85,36 @@ form {
 .complete-btn i, .trash-btn i {
     pointer-events: none;
 }
-.complete{
+.completed{
     text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall{
+    transform: translateY(10rem) rotate(20deg);
+    opacity: 0;
+
+}
+
+.filter-options{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    margin-left: 1rem;
+    padding: 0.6rem;
+    width: 120px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+}
+.select-warper{
+    position: relative;
+}
+.select-warper::after{
+    content:"\25BC";
+    padding: 0.5rem;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

@@ -1,14 +1,15 @@
 // selectors 
 
 const formEl = document.querySelector(".form");
-const todosEl = document.querySelector(".todos");
+const todos = document.querySelector(".todos");
 const inputEl = document.querySelector(".todo-input");
+const filterOptions = document.querySelector(".filter-options");
 
 // event listener 
 
 formEl.addEventListener("submit", addTodo);
-todosEl.addEventListener("click",handleTodosClick)
-
+todos.addEventListener("click",handleTodosClick)
+filterOptions.addEventListener("click", filterTodo)
 
 // functions 
 
@@ -42,7 +43,7 @@ function addTodo (event){
     todoDiv.appendChild(trashBtn)
 
     // Add New Tod to Todos list
-    todosEl.appendChild(todoDiv)
+    todos.appendChild(todoDiv)
 
     // Reset Input Value
     inputEl.value = ""
@@ -57,9 +58,45 @@ function handleTodosClick (event){
     
     // add line through for complete 
     if (target.classList.contains("complete-btn")){
-        target.parentElement.classList.toggle("complete");
+        target.parentElement.classList.toggle("completed");
     // delete todo element 
     } else if(target.classList.contains("trash-btn")){
+        target.parentElement.classList.add("fall");
+        target.parentElement.addEventListener("transitionend", ()=>{
         target.parentElement.remove();
+        });
+        
     }
+}
+
+
+// filter Todo
+
+function filterTodo(event){
+
+    const selection = event.target.value;
+    const todoItems= todos.childNodes;
+    
+    todoItems.forEach(function (todo) {
+        console.log(selection);
+        switch (selection){
+            case "all":
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if(todo.classList.contains("completed")){
+                    todo.style.display = "flex";
+                }else{
+                    todo.style.display = "none";
+                }
+                break;
+            case "uncompleted":
+                if(!todo.classList.contains("completed")){
+                    todo.style.display = "flex";
+                }else{
+                    todo.style.display = "none";
+                }
+                break;
+        }
+    })
 }
