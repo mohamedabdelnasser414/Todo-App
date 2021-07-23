@@ -9,7 +9,7 @@ const filterOptions = document.querySelector(".filter-options");
 
 formEl.addEventListener("submit", addTodo);
 todos.addEventListener("click",handleTodosClick)
-filterOptions.addEventListener("click", filterTodo)
+filterOptions.addEventListener("change", filterTodo)
 
 // functions 
 
@@ -51,7 +51,7 @@ function addTodo (event){
     
 }
 
-// Delete or mark as complete 
+// Delete and Mark as completed
 
 function handleTodosClick (event){
     const target = event.target;
@@ -70,7 +70,7 @@ function handleTodosClick (event){
 }
 
 
-// filter Todo
+// filter Todos
 
 function filterTodo(event){
 
@@ -78,7 +78,6 @@ function filterTodo(event){
     const todoItems= todos.childNodes;
     
     todoItems.forEach(function (todo) {
-        console.log(selection);
         switch (selection){
             case "all":
                 todo.style.display = "flex";

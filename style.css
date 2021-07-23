@@ -21,7 +21,7 @@ body{
 form {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    margin: 3rem 1rem;
 }
 .todo-input{
     max-width: 250px;
